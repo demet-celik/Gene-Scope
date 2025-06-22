@@ -241,40 +241,16 @@ Gene Scope is structured to walk users through the essential steps of bioinforma
 - **Concept:** MSA aligns three or more protein sequences to identify regions of similarity, which may indicate functional, structural, or evolutionary relationships.
 - **Why included:** MSA is fundamental for studying protein families, evolution, and functional domains.
 
-#### c. Highlighting Conserved Regions
+#### c. Highlighting Conserved Regions and Interpreting MSA Results
 - **Function:** `display_highlighted_msa`
 - **Concept:**  
-  After performing a multiple sequence alignment (MSA), it is important to identify and visualize **conserved regions**—positions in the alignment where the same amino acid (or nucleotide) is present across all sequences. These regions are often functionally or structurally important, as they have been preserved by evolution due to selective pressure.
+  After performing a multiple sequence alignment (MSA), it is important to identify and visualize **conserved regions**—positions in the alignment where the same amino acid (or nucleotide) is present across all sequences. These regions are often functionally or structurally important, as they have been preserved by evolution due to selective pressure. Interpreting the results of a multiple sequence alignment goes beyond just visualizing the alignment. This function quantifies and explains the biological significance of the observed conservation.
 
 - **How it works in this project:**  
   - The function scans each column of the alignment and checks if all sequences have the same amino acid at that position (excluding gaps).
   - The indices of these conserved positions are collected.
   - The alignment is then displayed with a color-coded highlight for each conserved amino acid, making it easy to visually spot these regions.
   - A summary of conserved positions is also printed in a readable format.
-
-- **Why is this important?**
-  - **Functional significance:** Conserved regions often correspond to active sites, binding domains, or structural motifs essential for the protein’s function.
-  - **Evolutionary insight:** High conservation suggests evolutionary constraints, indicating that changes in these regions may be deleterious.
-  - **Research applications:** Identifying conserved regions helps in designing experiments (e.g., mutagenesis), drug targeting, and understanding disease mechanisms.
-
-- **Visualization example:**
-  ```
-  Sequence1:  M A V Y F D H R A E A P D S S G V P V L I S W H S S V C V L A V G S V N P S T G G C V D ...
-  Sequence2:  M A L Y F D H R I K A P D T P S S P S H I T W H P T H P F L A V A S I S P S S G G N V D ...
-  Sequence3:  M A V Y F D H R A E A P D S S G V P V L I S W H S S V C V L A V G S V N P S T G G C V D ...
-                * *   * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
-  ```
-  (Asterisks or color highlights indicate conserved positions.)
-
-- **Why included:**  
-  This step provides an intuitive, visual way to interpret the results of MSA, helping users quickly identify biologically meaningful patterns in the data.
-
-#### d. Interpreting MSA Results
-- **Function:** `interpret_msa_results`
-- **Concept:**  
-  Interpreting the results of a multiple sequence alignment goes beyond just visualizing the alignment. This function quantifies and explains the biological significance of the observed conservation.
-
-- **How it works in this project:**  
   - Calculates the **number and percentage of conserved positions** in the alignment.
   - Provides a summary of the alignment, including the number of sequences, alignment length, and overall percent identity.
   - Offers a biological interpretation based on the degree of conservation:
@@ -287,11 +263,23 @@ Gene Scope is structured to walk users through the essential steps of bioinforma
     - Binding sites for other molecules (proteins, DNA, ligands)
 
 - **Why is this important?**
+  - **Functional significance:** Conserved regions often correspond to active sites, binding domains, or structural motifs essential for the protein’s function.
+  - **Evolutionary insight:** High conservation suggests evolutionary constraints, indicating that changes in these regions may be deleterious.
+  - **Research applications:** Identifying conserved regions helps in designing experiments (e.g., mutagenesis), drug targeting, and understanding disease mechanisms.
   - **Evolutionary biology:** Helps trace the evolutionary history of genes/proteins and understand how function is preserved or diversified.
   - **Biomedical research:** Identifies potential targets for drug design or genetic engineering.
   - **Functional annotation:** Guides experimental studies by highlighting regions likely to be important for activity or interaction.
 
-- **Example output:**
+- **Visualization example:**
+  ```
+  Sequence1:  M A V Y F D H R A E A P D S S G V P V L I S W H S S V C V L A V G S V N P S T G G C V D ...
+  Sequence2:  M A L Y F D H R I K A P D T P S S P S H I T W H P T H P F L A V A S I S P S S G G N V D ...
+  Sequence3:  M A V Y F D H R A E A P D S S G V P V L I S W H S S V C V L A V G S V N P S T G G C V D ...
+                * *   * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+  ```
+  (Asterisks or color highlights indicate conserved positions.)
+
+  - **Example output for the interpretation:**
   ```
   ▶ Alignment Overview:
     - Number of Sequences: 3
@@ -313,9 +301,9 @@ Gene Scope is structured to walk users through the essential steps of bioinforma
   ```
 
 - **Why included:**  
-  This step translates raw alignment data into meaningful biological insights, making the results actionable and understandable for both beginners and experienced researchers.
+  This step provides an intuitive, visual way to interpret the results of MSA, helping users quickly identify biologically meaningful patterns in the data and also translates raw alignment data into meaningful biological insights, making the results actionable and understandable for both beginners and experienced researchers.
 
-#### e. BLAST Search
+#### d. BLAST Search
 - **Function:** `blast_and_parse_sequence`
 - **Concept:**  
   **BLAST (Basic Local Alignment Search Tool)** is one of the most widely used algorithms in bioinformatics for comparing an input sequence (query) against a database of known sequences. It identifies regions of local similarity, helping researchers find homologous genes or proteins, infer function, and explore evolutionary relationships.
