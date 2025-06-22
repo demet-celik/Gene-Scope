@@ -14,7 +14,7 @@ Gene Scope is structured to walk users through the essential steps of bioinforma
 - **Function:** `read_fasta`
 - **Concept:** FASTA is a standard text-based format for representing nucleotide or peptide sequences. Reading FASTA files is the first step in almost any bioinformatics workflow.
 - **Project example files:**  
-  For this project, example FASTA files have already been downloaded and are included in a separate folder within the GitHub project repository. These files will be used as sample data for the analyses in Gene Scope.  
+  For this project, example FASTA files have already been downloaded and are included in a separate folder named **Example Fasta Files** within the GitHub project repository. These files will be used as sample data for the analyses in Gene Scope.  
   **Before starting the project, users must download these example FASTA files from the GitHub repository and upload them to their Google Colab session when running the `Gene_Scope.ipynb` notebook.**
 - **Where to find FASTA files:**  
   The example FASTA files used in this project—such as human genome DNA sequences and IFT140 protein sequences from human, mouse, and zebrafish—are real biological data that researchers use in their work. These files can also be downloaded from major biological databases, including:
